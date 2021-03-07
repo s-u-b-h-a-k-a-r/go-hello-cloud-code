@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta8
+kind: Config
+metadata:
+  name: go-hello-cloud-code
+build:
+  artifacts:
+    - image: go-hello-cloud-code
+      docker:
+        dockerfile: Dockerfile
+  tagPolicy:
+    sha256: {}
+deploy:
+  kustomize:
+    paths:
+      - manifests/
